@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود به ABANKO</title>
+    <link rel="stylesheet" href="{% static 'users/login.css' %}">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-left">
+                <h2>ورود</h2>
+                <form method="post" action="{% url 'users:login'%}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">ورود</button>
+                    <p>csrf_token: {{csrf_token}}</P>
+                </form>
+                <p>حساب کاربری ندارید؟ <a href="{% url 'users:register' %}">ثبت‌نام</a></p>
+            </div>
+            <div class="login-right">
+                <h2>خوش آمدید!</h2>
+                <p>خوشحالیم که دوباره با ما هستید 💙<br>اگر کمک نیاز دارید، در خدمت شما هستیم.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

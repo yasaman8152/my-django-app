@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ course.title }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'courses/css/styles.css' %}">
+</head>
+<body>
+    <div class="course-detail-container">
+        <!-- نمایش ویدیو استاد دوره -->
+        <div class="course-video">
+            <h2>{{ course.title }}</h2>
+            <video width="100%" height="auto" controls>
+                <source src="{{ course.video_url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- نمایش سرفصل دوره -->
+        <div class="course-info">
+            <div class="course-pricing">
+                <p><strong>قیمت:</strong> {{ course.price }} تومان</p>
+                <p><strong>تعداد ساعت دوره:</strong> {{ course.hours }} ساعت</p>
+                <!-- دکمه خرید دوره -->
+                <form method="post" action="{% url 'courses:add_to_cart' course.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">افزودن به سبد خرید</button>
+                </form>
+            </div>
+            
+            <div class="course-syllabus">
+                <h3>سرفصل‌های دوره:</h3>
+                <ul>
+                      {% for item in syllabus_list %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <!-- توضیحات درباره موسسه -->
+        <div class="about-institute">
+            <h3>درباره موسسه:</h3>
+            <p>{{ about_institute }}</p>  <!-- نمایش توضیحات موسسه -->
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'courses/base.html' %}
+{% block title %}لیست کاربران{% endblock %}
+{% block content %}
+<h2>👥 لیست کاربران</h2>
+
+<div class="user-list">
+    {% for user in users %}
+        <div class="user-card">
+            <h4>{{ user.username }}</h4>
+            <p>{{ user.email }}</p>
+        </div>
+    {% empty %}
+        <p>هیچ کاربری هنوز ثبت نشده است.</p>
+    {% endfor %}
+</div>
+{% endblock %}

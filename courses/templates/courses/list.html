@@ -1,0 +1,27 @@
+{% extends 'courses/base.html' %}
+{% block title %}لیست دوره‌ها{% endblock %}
+
+{% block content %}
+<div class="courses-container">
+  <header class="courses-header">
+    <h1>🎓 دوره‌های آموزشی ABANKO</h1>
+    <p>مسیر یادگیری خودت رو با انتخاب یکی از دوره‌ها شروع کن 🚀</p>
+  </header>
+
+  <div class="courses-grid">
+    {% for course in courses %}
+      <div class="course-card">
+        {% if course.image %}
+          <img src="{{ course.image.url }}" alt="{{ course.title }}" class="course-img">
+        {% endif %}
+        <h2>{{ course.title }}</h2>
+        <p class="course-category">{{ course.category.name }}</p>
+        <p class="course-desc">{{ course.description|truncatewords:20 }}</p>
+        <a href="{{ course.get_absolute_url }}" class="btn-course">مشاهده جزئیات</a>
+      </div>
+    {% empty %}
+      <p class="empty">هیچ دوره‌ای هنوز منتشر نشده است 😔</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

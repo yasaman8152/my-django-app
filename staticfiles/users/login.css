@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&display=swap');
+
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  background: linear-gradient(135deg, #0b1e3f, #00122b);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.login-box {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.3);
+  width: 800px;
+  max-width: 90%;
+  backdrop-filter: blur(10px);
+}
+
+.login-left, .login-right {
+  padding: 40px;
+  flex: 1;
+}
+
+.login-left {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.login-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+  background: linear-gradient(135deg, #002b50, #003e73);
+}
+
+.login-left h2 {
+  margin-bottom: 20px;
+  color: #00bfff;
+  text-align: center;
+}
+
+.login-left form p {
+  margin-bottom: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #00bfff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #0095e0;
+  box-shadow: 0 0 10px #00bfff;
+}
+
+a {
+  color: #00bfff;
+  text-decoration: none;
+}

@@ -1,0 +1,145 @@
+{% block content %}
+
+<style>
+    body {
+        background: linear-gradient(135deg, #0a0f2c, #001f3f);
+        color: white;
+        font-family: "Vazir", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .register-box {
+        background: rgba(0, 15, 40, 0.9);
+        border: 1px solid rgba(0, 153, 255, 0.3);
+        border-radius: 15px;
+        box-shadow: 0 0 25px rgba(0, 153, 255, 0.3);
+        display: flex;
+        overflow: hidden;
+        width: 780px;
+        max-width: 95%;
+        transition: all 0.3s ease;
+    }
+
+    .register-left {
+        flex: 1;
+        background: linear-gradient(145deg, #003366, #001a33);
+        padding: 60px 35px;
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .register-left h2 {
+        font-size: 28px;
+        color: #00bfff;
+        margin-bottom: 15px;
+    }
+
+    .register-left p {
+        color: #b8c6db;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .register-right {
+        flex: 1;
+        padding: 60px 40px;
+        background-color: #0b1736;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .register-right h2 {
+        text-align: center;
+        color: #00bfff;
+        margin-bottom: 30px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    form p {
+        margin: 0;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        background: #12264d;
+        color: white;
+        font-size: 14px;
+    }
+
+    input::placeholder {
+        color: #9bb0d6;
+    }
+    button {
+        background: linear-gradient(145deg, #00bfff, #007acc);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    button:hover {
+        background: linear-gradient(145deg, #0099cc, #005fa3);
+        box-shadow: 0 0 15px rgba(0, 153, 255, 0.6);
+    }
+
+    .login-link {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .login-link a {
+        color: #00bfff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .login-link a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="register-box">
+    <div class="register-left">
+        <h2>خوش آمدید!</h2>
+        <p>
+            خوشحالیم که به جمع ما پیوستید 🌟<br>
+            با ثبت‌نام، دنیای آموزش و رشد را شروع کنید.
+        </p>
+    </div>
+
+    <div class="register-right">
+        <h2>ثبت نام</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">ثبت نام</button>
+            <a href="{% url 'users:login' %}">
+        </form>
+
+        <div class="login-link">
+            <p>حساب کاربری دارید؟ <a href="{% url 'users:login' %}">ورود</a></p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}        

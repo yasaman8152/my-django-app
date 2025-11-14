@@ -1,0 +1,94 @@
+{% extends 'courses/base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+<div class="profile-container">
+  <h2>پروفایل {{ request.user.username }}</h2>
+
+  <!-- تب‌ها -->
+  <div class="tabs">
+    <button class="tab-button active" data-tab="courses">🎓 دوره‌های من</button>
+    <button class="tab-button" data-tab="info">👤 مشخصات کاربر</button>
+    <button class="tab-button" data-tab="cart">🛒 سبد خرید</button>
+  </div>
+
+  <!-- محتوای تب‌ها -->
+  <div id="courses" class="tab-content active">
+    <h3>دوره‌های خریده‌شده</h3>
+    {% if purchased_courses %}
+      <ul>
+        {% for course in purchased_courses %}
+          <li>{{ course.title }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>شما هنوز هیچ دوره‌ای خریداری نکرده‌اید.</p>
+    {% endif %}
+  </div>
+
+  <div id="info" class="tab-content">
+    <h3>مشخصات کاربر</h3>
+    {% if request.user.profile.avatar %}
+      <img src="{{ request.user.profile.avatar.url }}" width="100" alt="Avatar">
+      {% endif %}
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">ذخیره تغییرات</button>
+      </form>
+    </div>
+    <div id="cart" class="tab-content">
+      <h3>سبد خرید</h3>
+      {% if cart_items %}
+      <ul>
+        {% for item in cart_items %}
+        <li>{{ item.course.title }} - {{ item.course.price }} تومان</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>سبد خرید شما خالی است.</p>
+      {% endif %}
+    </div>
+    <a href="{% url 'users:logout' %}" class="logout-link">خروج از حساب</a>
+  </div>
+  <!-- جاوااسکریپت ساده برای تغییر تب‌ها -->
+  <script>
+    const tabs = document.querySelectorAll(".tab-button");
+    const contents = document.querySelectorAll(".tab-content");
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.tab).classList.add("active");
+      });
+    });
+  </script>
+    <script>
+  // همه دکمه‌های تب و محتواها رو انتخاب می‌کنیم
+  const tabs = document.querySelectorAll(".tab-button");
+  const contents = document.querySelectorAll(".tab-content");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      // همه دکمه‌ها از حالت active خارج می‌شن
+      tabs.forEach(t => t.classList.remove("active"));
+
+      // همه محتواها پنهان می‌شن
+      contents.forEach(c => c.classList.remove("active"));
+
+      // تب کلیک‌شده فعال می‌شه
+      tab.classList.add("active");
+
+      // آی‌دی مربوط به اون تب رو می‌گیریم
+      const tabId = tab.dataset.tab;
+
+      // فقط محتوای مرتبط با تب فعال نشون داده میشه
+      document.getElementById(tabId).classList.add("active");
+    });
+  });
+</script>
+  {% endblock %}
+

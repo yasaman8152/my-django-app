@@ -1,0 +1,551 @@
+/* ===== تنظیمات پایه ===== */
+body {
+    margin: 0;
+    background: linear-gradient(-45deg, #89f7fe, #66a6ff, #ffecd2, #fcb69f);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    font-family: "Vazirmatn", sans-serif;
+    backdrop-filter: blur(8px);
+    color: #222;
+    transition: all 0.3s ease;
+}
+
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.btn {
+  background: #0d6efd;
+  color: rgb(207, 33, 33);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: bold;
+  box-shadow: 0 0 10px #0d6efd, 0 0 20px #0d6efd;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background: #3d8bfd;
+  box-shadow: 0 0 20px #db3c19, 0 0 40px #e2e827;
+  transform: scale(1.08);
+}
+
+.glow-logo {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 36px;
+  font-weight: 800;
+  color: #00bfff;
+  text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 40px #00bfff;
+  animation: glowPulse 2s ease-in-out infinite alternate;
+  z-index: 9999;
+}
+
+@keyframes glowPulse {
+  from { text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff; }
+  to { text-shadow: 0 0 20px #00bfff, 0 0 40px #00bfff, 0 0 80px #00bfff; }
+}
+
+/* ===== ساختار کلی ===== */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== پنل کناری ===== */
+.sidebar {
+    background: linear-gradient(180deg, #212529, #343a40);
+    color: #fff;
+    width: 230px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar .logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar nav ul li a {
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: #495057;
+    color: #fff;
+    transform: translateX(-5px);
+}
+
+/* ===== بخش اصلی ===== */
+.content {
+    flex: 1;
+    padding: 40px 60px;
+    background: linear-gradient(145deg, #ffffff, #e9ecef);
+}
+
+/* ===== هدر ===== */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-weight: 800;
+    color: #222;
+    font-size: 2rem;
+}
+
+header h1 span {
+    color: #007bff;
+}
+
+header p {
+    color: #555;
+    margin-top: 10px;
+}
+
+/* ===== 🌟 استایل افکت مارکی (نوار متحرک خوش‌آمدگویی) ===== */
+
+/* --- Glass & Neon Marquee --- */
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background: rgba(0, 123, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 12px 0;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+/* متن متحرک */
+.marquee p {
+  display: inline-block;
+  animation: scrollText 10s linear infinite;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: #061516;
+  margin: 0;
+  transform: translateX(100%);
+  will-change: transform;
+}
+
+/* افکت نئونی دور متن */
+.marquee p span {
+  display: inline-block;
+  border: 2px solid rgba(0, 234, 255, 0.8);
+  border-radius: 10px;
+  padding: 8px 24px;
+  background: rgba(255, 255, 255, 0.05);
+  text-shadow: 0 0 10px #00eaff, 0 0 25px #00eaff, 0 0 50px #00eaff;
+  box-shadow: 0 0 15px rgba(0,234,255,0.7),
+              0 0 30px rgba(0,234,255,0.5),
+              inset 0 0 10px rgba(0,234,255,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* رد نور درخشان */
+.marquee p span::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.9), transparent);
+  transform: skewX(-25deg);
+  animation: shine 3s infinite;
+}
+
+/* انیمیشن حرکت متن */
+@keyframes scrollText {
+  0% { transform: translateX(120%); }
+  100% { transform: translateX(-120%); }
+}
+
+/* انیمیشن درخشش رد نور */
+@keyframes shine {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+
+/* انتخابی: می‌تونی اینو هم اضافه کنی تا پس‌زمینه کل صفحه جذاب‌تر شه */
+body {
+  font-family: "Vazirmatn", sans-serif;
+  background-color: #f7f9fc;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== پست‌ها ===== */
+.posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.post-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.post-card h2 {
+    font-size: 1.3rem;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.post-card p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.meta .readmore {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s;
+}
+
+.meta .readmore:hover {
+    color: #0056b3;
+}
+
+/* ===== واکنش‌گرا ===== */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        height: auto;
+        padding: 15px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+}
+
+/* 🌈 پس‌زمینه متحرک نرم */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(-45deg, #89f7fe, #e1e8f2, #173bdc, #0a2a6d);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+  font-family: "Vazirmatn", sans-serif;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ✨ لوگوی درخشان تصویری */
+.glow-logo {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.glow-logo img {
+  display: inline-block;
+  width: 150px; /* اندازه لوگو */
+  height: auto;
+  border-radius: 12px;
+  filter: drop-shadow(0 0 8px #66a6ff)
+  drop-shadow(0 0 15px #66a6ff)
+  drop-shadow(0 0 25px #89f7fe);
+  animation: glowPulse 2.5s infinite alternate;
+}
+
+@keyframes glowPulse {
+  from {
+    filter: drop-shadow(0 0 5px #66a6ff)
+            drop-shadow(0 0 10px #89f7fe);
+  }
+  to {
+    filter: drop-shadow(0 0 20px #66a6ff)
+            drop-shadow(0 0 30px #89f7fe);
+  }
+}
+
+/* 💫 افکت نئونی برای دکمه‌ها */
+button, .btn, .btn-primary {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0 0 10px #007bff, 0 0 20px #007bff;
+  transition: all 0.3s ease;
+}
+
+button:hover, .btn:hover, .btn-primary:hover {
+  box-shadow: 0 0 20px #3d8bfd, 0 0 40px #3d8bfd;
+  transform: scale(1.08);
+}
+
+/* 💎 قاب شیشه‌ای */
+.container {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  width: 80%;
+  margin: 30px auto;
+  box-shadow: 0 0 30px rgba(0,0,0,0.1);
+}
+
+.welcome-text {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 50px;
+  color: #222;
+}
+
+.welcome-text img.welcome-logo {
+  width: 70px;
+  height: auto;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px #66a6ff)
+          drop-shadow(0 0 12px #66a6ff)
+          drop-shadow(0 0 20px #89f7fe);
+  animation: glowPulse 2.5s infinite alternate;
+}
+
+@keyframes glowPulse {
+  from {
+    filter: drop-shadow(0 0 6px #66a6ff)
+            drop-shadow(0 0 10px #89f7fe);
+  }
+  to {
+    filter: drop-shadow(0 0 25px #66a6ff)
+            drop-shadow(0 0 35px #89f7fe);
+  }
+}
+
+.welcome-text span {
+  color: #007bff;
+  text-shadow: 0 0 8px #66a6ff;
+}
+
+/* ✅ جعبه‌ی شیشه‌ای دور متن خوش‌آمد */
+.welcome-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  padding: 25px 40px;
+  margin: 50px auto;
+  width: fit-content;
+  animation: fadeInUp 1.5s ease;
+}
+
+/* ✅ متن و لوگو کنار هم */
+.welcome-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 10px #66a6ff, 0 0 20px #89f7fe;
+}
+
+/* ✅ لوگوی درخشان */
+.welcome-logo {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 10px #66a6ff, 0 0 25px #89f7fe;
+  animation: glowPulse 10s infinite alternate;
+}
+
+/* ✅ افکت درخشش ملایم */
+@keyframes glowPulse {
+  from {
+    box-shadow: 0 0 10px #66a6ff, 0 0 20px #89f7fe;
+  }
+  to {
+    box-shadow: 0 0 25px #66a6ff, 0 0 35px #89f7fe;
+  }
+}
+
+/* ✅ افکت ظاهر شدن نرم از پایین */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-text strong {
+  color: #010505;
+}
+
+/* ---- سایدبار ---- */
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 70px; /* حالت جمع شده */
+  height: 100vh;
+  background: linear-gradient(180deg, #007bff, #003f88);
+  color: #fff;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  transition: width 0.4s ease;
+  overflow: hidden;
+  border-radius: 12px 0 0 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 100;
+}
+
+/* وقتی موس روی سایدبار میره */
+.sidebar:hover {
+  width: 220px; /* حالت باز */
+  background: linear-gradient(180deg, #339cff, #004aad);
+}
+
+/* لوگوی ABANKO */
+.sidebar .logo {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+/* منوها */
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.sidebar nav ul li {
+  margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 25px;
+  text-decoration: none;
+  color: #fff;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+
+/* فقط آیکون‌ها یا ایموجی‌ها در حالت عادی دیده میشن */
+.sidebar nav ul li a span {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* وقتی موس روی سایدبار میره، متن‌ها ظاهر میشن */
+.sidebar:hover nav ul li a span {
+  opacity: 1;
+}
+
+/* افکت hover روی لینک‌ها */
+.sidebar nav ul li a:hover {
+  color: #d9e320;
+}
+
+/* بخش محتوای اصلی */
+.content {
+  margin-right: 80px; /* جا برای سایدبار در حالت جمع شده */
+  transition: margin-right 0.4s ease;
+}
+
+/* وقتی موس روی سایدبار میره، محتوا هم کمی جابه‌جا بشه */
+.sidebar:hover ~ .content {
+  margin-right: 230px;
+}
+
+.login-link {
+    background: linear-gradient(45deg, #007bff, #00c6ff);
+    padding: 8px 15px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+    display: inline-block;
+}
+.login-link:hover {
+    background: linear-gradient(45deg, #0056b3, #0099cc);
+    box-shadow: 0 0 15px #00c6ff;
+}
+

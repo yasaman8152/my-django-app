@@ -1,0 +1,44 @@
+{% load static %}
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <title>دسته‌بندی‌ها</title>
+  <link rel="stylesheet" href="{% static 'categories/css/categories.css' %}">
+</head>
+<body>
+<header class="page-header">
+  <h1>دسته‌بندی آموزش‌ها</h1>
+  <form class="search" method="get">
+    <input type="text" name="q" placeholder="جستجوی دسته…" value="{{ q|default_if_none:'' }}">
+    <button type="submit">جستجو</button>
+  </form>
+</header>
+
+<main class="container">
+  <div class="grid">
+  {% for cat in categories %}
+    <a class="card" href="{{ cat.get_absolute_url }}">
+      <div class="card-media">
+        {% if cat.image %}
+          <img src="{{ cat.image.url }}" alt="{{ cat.name }}">
+        {% else %}
+          <img src="{% static 'categories/img/placeholder.png' %}" alt="{{ cat.name }}">
+        {% endif %}
+      </div>
+      <div class="card-body">
+        <h2 class="card-title">{{ cat.name }}</h2>
+        <p class="card-desc">{{ cat.description|truncatechars:90 }}</p>
+        <div class="card-meta">
+          {{ cat.course_count }} دوره
+        </div>
+      </div>
+    </a>
+  {% empty %}
+    <p>هنوز دسته‌ای ثبت نشده است.</p>
+  {% endfor %}
+</div>
+
+</main>
+</body>
+</html>

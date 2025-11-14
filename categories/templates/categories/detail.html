@@ -1,0 +1,76 @@
+{% load static %}
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <title>{{ category.name }}</title>
+  <link rel="stylesheet" href="{% static 'categories/css/categories.css' %}">
+</head>
+<body>
+<nav class="breadcrumb">
+  <a href="{% url 'category_list' %}">همه دسته‌ها</a>
+  <span>›</span>
+  <span>{{ category.name }}</span>
+</nav>
+
+<section class="hero">
+  <div class="hero-media">
+    {% if category.image %}
+      <img src="{{ category.image.url }}" alt="{{ category.name }}">
+    {% else %}
+      <img src="{% static 'categories/img/placeholder.png' %}" alt="Category Image">
+    {% endif %}
+  </div>
+  <div class="hero-body">
+    <h1>{{ category.name }}</h1>
+    {% if category.description %}
+      <p>{{ category.description }}</p>
+    {% endif %}
+    {% if subcats %}
+      <div class="tags">
+        {% for c in subcats %}
+          <a href="{{ c.get_absolute_url }}" class="tag"># {{ c.name }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+
+<section class="container">
+  <h2 class="section-title">دوره‌های این دسته</h2>
+  <div class="courses-grid">
+    {% for course in courses_page %}
+      <a class="course-card" href="{{ course.get_absolute_url }}">
+        <div class="course-card-body">
+          <h3 class="course-title">{{ course.title }}</h3>
+          <div class="course-meta">
+            <span>{{ course.hours }} ساعت</span>
+            <span class="dot">•</span>
+            <span>{{ course.price }} تومان</span>
+          </div>
+          {% if course.description %}
+            <p class="course-desc">{{ course.description|truncatechars:110 }}</p>
+          {% endif %}
+        </div>
+        <div class="course-cta">مشاهده دوره</div>
+      </a>
+    {% empty %}
+      <p>در این دسته فعلاً دوره‌ای منتشر نشده است.</p>
+    {% endfor %}
+  </div>
+
+  {% if courses_page.paginator.num_pages > 1 %}
+    <div class="pagination">
+      {% if courses_page.has_previous %}
+        <a href="?page={{ courses_page.previous_page_number }}">قبلی</a>
+      {% endif %}
+      <span>صفحه {{ courses_page.number }} از {{ courses_page.paginator.num_pages }}</span>
+      {% if courses_page.has_next %}
+        <a href="?page={{ courses_page.next_page_number }}">بعدی</a>
+      {% endif %}
+    </div>
+  {% endif %}
+</section>
+</body>
+</html>

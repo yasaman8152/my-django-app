@@ -1,0 +1,252 @@
+/* تنظیمات عمومی */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    background-color: #f4f4f4; /* پس‌زمینه روشن */
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* طراحی هدر */
+header {
+    background-color: #3170ae;
+    padding: 20px 0;
+    color: #fff;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 32px;
+    margin: 0;
+}
+
+/* دکمه‌ها */
+button, .btn {
+    background-color: #5032be;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .btn:hover {
+    background-color: #3b2a9b;
+}
+
+/* تنظیمات کارت محصول */
+.course-detail-container {
+    padding: 20px;
+    background-color: #307a98;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.course-video {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.course-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.course-pricing {
+    width: 30%;
+    background-color: #3170ae;
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.course-pricing p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.course-syllabus {
+    width: 65%;
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+h2, h3 {
+    color: #060f17;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: #498f60;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
+}
+
+/* بخش توضیحات موسسه */
+.about-institute {
+    background-color: #7fbadc;
+    padding: 30px;
+    border-radius: 5px;
+    color: #fff;
+    margin-top: 40px;
+}
+
+.about-institute h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* پاسخگویی (Responsive Design) */
+@media (max-width: 768px) {
+    .course-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .course-pricing, .course-syllabus {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .course-syllabus ul li {
+        font-size: 14px;
+    }
+}
+
+/* 🎓 صفحه لیست دوره‌ها */
+.courses-container {
+  text-align: center;
+  padding: 50px 30px;
+}
+
+.courses-header h1 {
+  font-size: 28px;
+  color: #b6ed50;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.courses-header p {
+  color: #f5eeee;
+  margin-bottom: 40px;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+.course-card {
+  background: #80c4ef;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  width: 100%;
+  max-width: 320px;
+  padding: 20px;
+  transition: all 1s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.course-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.course-card h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.course-category {
+  font-size: 13px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.course-desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.btn-course {
+  display: inline-block;
+  background: linear-gradient(90deg, #007bff, #00b3ff);
+  color: white;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  transition: background 0.3s ease;
+}
+
+.btn-course:hover {
+  background: linear-gradient(90deg, #005ce6, #0099e6);
+}
+
+/* ✨ انیمیشن ورود کارت‌ها */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* کارت‌ها در ابتدا محو و پایین‌تر هستند */
+.course-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* تاخیر جزئی برای هر کارت که یکی‌یکی ظاهر بشن */
+.course-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.course-card:nth-child(2) {
+  animation-delay: 0.25s;
+}
+.course-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.course-card:nth-child(4) {
+  animation-delay: 0.55s;
+}
+.course-card:nth-child(5) {
+  animation-delay: 0.7s;
+}
+.course-card:nth-child(6) {
+  animation-delay: 0.85s;
+}
