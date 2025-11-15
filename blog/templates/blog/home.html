@@ -12,6 +12,20 @@
     <link rel="stylesheet" href="{% static 'blog/style.css' %}">
 </head>
 
+<header class="main-header">
+    <div class="logo-left">
+        <img src="{% static 'blog/logo.png' %}" alt="ABANKO">
+        <span>ABANKO</span>
+    </div>
+
+    <nav class="top-menu">
+        <a href="{% url 'blog:home' %}">صفحه اصلی</a>
+        <a href="{% url 'courses:list' %}">دوره‌ها</a>
+        <a href="#">تماس</a>
+        <a href="#">درباره ما</a>
+    </nav>
+</header>
+
 <body>
     <div class="container">
 
