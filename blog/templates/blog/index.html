@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/shabnam-font@v5.0.1/dist/font-face.css" rel="stylesheet">
+    <title>آبانکو — آموزش نفت و گاز</title>
+    <!-- AOS Animations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- لینک فایل CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<!-- LOGO + Type Effect Box -->
+<div class="floating-logo">
+    <img src="logo.png" class="logo-img" alt="logo">
+
+    <div class="type-box">
+        <span id="typeText"></span>
+    </div>
+</div>
+
+<body>
+
+    <!-- هدر / Hero -->
+    <header class="hero">
+        <div class="container">
+            <div class="top-row"></div>
+
+                
+            </div>
+
+            <h1>پلتفرم آموزش تخصصی نفت و گاز — آبانکو</h1>
+
+            <div class="search-box">
+                <input type="search" placeholder="چی دوست داری یاد بگیری؟ — جستجو کن..." />
+                <button class="search-btn">🔍</button>
+            </div>
+            <div class="side-menu">
+                <a href="#">
+                    <img src="images/home.png" alt="">
+                    <span>خانه</span>
+                </a>
+                <a href="#">
+                    <img src="images/course.png" alt="">
+                    <span>دوره‌ها</span>
+                </a>
+                <a href="#">
+                    <img src="images/category.png" alt="">
+                    <span>دسته‌بندی</span>
+                </a>
+                <a href="#">
+                    <img src="images/user.png" alt="">
+                    <span>پروفایل</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- دوره‌ها -->
+        <section class="courses-section">
+    <h2 data-aos="fade-up">دوره‌ها</h2>
+
+    <div class="courses-grid">
+        <div class="course-card" data-aos="zoom-in" onclick="location.href='course-ai.html'">
+            <img src="images/@ABANKO (8).png" alt="دوره ۱">
+            <p>هوش مصنوعی با HSE</p>
+        </div>
+
+        <div class="course-card" data-aos="zoom-in" data-aos-delay="100" onclick="location.href='course-pfd.html'">
+            <img src="images/@ABANKO (4).png" alt="دوره ۲">
+            <p>نقشه‌خوانی PFD</p>
+        </div>
+
+        <div class="course-card" data-aos="zoom-in" data-aos-delay="200" onclick="location.href='course-py.html'">
+            <img src="images/@ABANKO (3).png" alt="دوره ۳">
+            <p>پایتون مهندسی</p>
+        </div>
+    </div>
+</section>
+
+        <!-- ویدیو -->
+        <section class="access-video" data-aos="fade-up">
+            <h2>نحوه دسترسی به ویدیوهای محصولات</h2>
+            <div class="access-box">
+                <p>
+            بعد از خرید هر محصول، ویدیوها در پنل کاربری شما فعال می‌شوند و می‌توانید 
+            در هر ساعت از شبانه‌روز از طریق موبایل، لپ‌تاپ یا تبلت مشاهده کنید.
+                </p>
+            </div>
+        </section>
+
+        <!-- بلاگ -->
+        <section class="section">
+            <div class="title">
+                <span class="line"></span>
+                مطالب وبلاگ
+            </div>
+
+            <div class="blog-list">
+
+                <article class="blog-item">
+                    <div class="eye">👁</div>
+                    <img src="images/MET.png" alt="">
+                    <div class="meta">
+                        <h3>نقشه خوانی ایزومتریک</h3>
+                        <p>مقدمه‌ای بر خواندن نقشه‌های پرفشار و کاربردهای صنعتی آن</p>
+                    </div>
+                </article>
+
+                <article class="blog-item">
+                    <div class="eye">👁</div>
+                    <img src="images/min.jpg" alt="">
+                    <div class="meta">
+                        <h3>فهم واحد متانول در پتروشیمی</h3>
+                        <p>آشنایی با طراحی و تولید متانول</p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- نظرات -->
+        <section class="section">
+            <div class="title">
+                <span class="line"></span>
+                نظر برخی دانشجویان
+            </div>
+
+            <div class="testimonial">
+                <div class="thead">
+                    <div class="avatar">B</div>
+                    <div>
+                        <strong>بنیامین امرالله‌لو</strong>
+                        <div class="role">دانشجوی دوره نقشه‌خوانی</div>
+                    </div>
+                </div>
+
+                <p class="ttext">
+                    کیفیت دوره بسیار خوبه، تمرین‌ها باعث میشه فرایند یادگیری شکل بگیره و بهتر جلو برم.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- دکمه تماس -->
+    <a href="tel:+98xxxxxxxxxx" class="phone-fab">📞</a>
+
+    <footer class="footer">
+        © ۲۰۲۵ آبانکو — پلتفرم آموزش تخصصی نفت و گاز
+    </footer>
+
+    <script>
+// ------------------------
+// افکت تایپ 
+// ------------------------
+const text = "ABANKO";
+let index = 0;
+const typeBox = document.querySelector(".type-box");
+const typeTarget = document.getElementById("typeText");
+
+setTimeout(() => {
+    typeBox.classList.add("show");
+
+    let typer = setInterval(() => {
+        typeTarget.textContent += text[index];
+        index++;
+
+        if(index === text.length){
+            clearInterval(typer);
+        }
+    }, 150);
+
+}, 600);
+
+
+
+// ------------------------
+// کوچک شدن لوگو هنگام اسکرول
+// ------------------------
+window.addEventListener("scroll", () => {
+    const logo = document.querySelector(".floating-logo");
+    const scrollY = window.scrollY;
+
+    if(scrollY > 20){
+        logo.classList.add("shrink");
+    } else {
+        logo.classList.remove("shrink");
+    }
+
+    if(scrollY > 200){
+        logo.classList.add("mini");
+    } else {
+        logo.classList.remove("mini");
+    }
+});
+</script>
+
+<script>
+  AOS.init();
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>اطلاعات دوره</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<section class="course-page">
+
+    <div class="course-header">
+
+        <!-- پوستر دوره -->
+        <div class="course-poster">
+            <img src="images/@ABANKO (8).png" alt="پوستر دوره">
+        </div>
+
+        <!-- اطلاعات اصلی دوره -->
+        <div class="course-main-info">
+            <h1>دوره هوش مصنوعی با HSE</h1>
+
+            <div class="course-meta">
+                <p><strong>تاریخ شروع:</strong> ۲۵ اسفند ۱۴۰۳</p>
+                <p><strong>ساعت برگزاری:</strong> ۲۰:۰۰</p>
+                <p><strong>قیمت دوره:</strong> ۳۵۰٬۰۰۰ تومان</p>
+            </div>
+
+            <button class="pay-btn" onclick="goToPayment()">پرداخت و ثبت نام</button>
+        </div>
+
+    </div>
+
+
+    <!-- استاد -->
+    <div class="teacher-box">
+        <img src="images/teacher.png" alt="استاد">
+        <div>
+            <h3>استاد: مهندس علی رضایی</h3>
+            <p>
+                مدرس تخصصی هوش مصنوعی با سابقه ۷ سال کار صنعتی در حوزه Data Science و Machine Learning
+            </p>
+        </div>
+    </div>
+
+    <!-- سرفصل‌ها -->
+    <div class="course-topics">
+        <h2>سرفصل دوره</h2>
+        <ul>
+            <li>مقدمه‌ای بر هوش مصنوعی</li>
+            <li>آشنایی با مدل‌های یادگیری ماشین</li>
+            <li>کار با دیتاست‌ها</li>
+            <li>ساخت پروژه HSE-AI</li>
+            <li>تحویل پروژه و جمع‌بندی</li>
+        </ul>
+    </div>
+
+</section>
+
+
+<script>
+function goToPayment() {
+    // نمونه – در Django واقعی از request.user استفاده می‌کنی
+    const isLoggedIn = false;
+
+    if (!isLoggedIn) {
+        window.location.href = "login.html"; // اگر لاگین نبود
+    } else {
+        window.location.href = "payment.html"; // اگر لاگین بود
+    }
+}
+</script>
+
+</body>
+</html>

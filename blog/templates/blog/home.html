@@ -1,81 +1,0 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>وبلاگ آموزشی ABANKO</title>
-
-    <!-- فونت فارسی -->
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
-
-    <!-- فایل CSS -->
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
-</head>
-
-<header class="main-header">
-    <div class="logo-left">
-        <img src="{% static 'blog/logo.png' %}" alt="ABANKO">
-        <span>ABANKO</span>
-    </div>
-
-    <nav class="top-menu">
-        <a href="{% url 'blog:home' %}">صفحه اصلی</a>
-        <a href="{% url 'courses:list' %}">دوره‌ها</a>
-        <a href="#">تماس</a>
-        <a href="#">درباره ما</a>
-    </nav>
-</header>
-
-<body>
-    <div class="container">
-
-        <!-- پنل کناری -->
-        <aside class="sidebar">
-            <div class="logo">ABANKO</div>
-            <nav>
-                <ul>
-                    <li><a href="{% url 'blog:home' %}">🏠 <span>وبلاگ</span></a></li>
-                    <li><a href="{% url 'courses:list' %}">🎓 <span>دوره‌ها</span></a></li>
-                    <li><a href="{% url 'categories:list' %}">📂 <span>دسته‌بندی‌ها</span></a></li>
-                    <li><a href="{% url 'users:login' %}">👤 <span>ثبت نام /ورود</span></a></li>
-                </ul>
-            </nav>
-        </aside>
-
-        <!-- بخش اصلی -->
-        <main class="content">
-            <header>
-                {% load static %}
-                <div class="welcome-box">
-                    <h1 class="welcome-text">
-                        <img src="{% static 'blog/logo.png' %}" alt="ABANKO Logo" class="welcome-logo">
-                        <span>به وب‌سایت آموزشی <strong>ABANKO</strong> خوش آمدید</span>
-                    </h1>
-                </div>
-                <br>
-                <br>
-                <div class="marquee">
-                    <p><span>ABANKO</span></p>
-                </div>
-                <p>اینجا دنیای یادگیری و رشد شماست 🌱</p>
-            </header>
-
-            <section class="posts">
-                {% for post in posts %}
-                <article class="post-card">
-                    <h2>{{ post.title }}</h2>
-                    <p>{{ post.content|truncatewords:30 }}</p>
-                    <div class="meta">
-                        <span>📅 {{ post.created_at|date:"Y/m/d" }}</span>
-                        <a href="#" class="readmore">ادامه مطلب →</a>
-                    </div>
-                </article>
-                {% empty %}
-                <p>هیچ پستی هنوز وجود ندارد 😔</p>
-                {% endfor %}
-            </section>
-        </main>
-
-    </div>
-</body>
-</html>
